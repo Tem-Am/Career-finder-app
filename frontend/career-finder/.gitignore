@@ -36,4 +36,5 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
-app-example
+
+# New and updated files to ignore
