@@ -6,9 +6,24 @@ const PORT = 3000; // define the port number
 app.use(express.json());
 
 // Sample route
-app.get('/', (req, res) => {
+// res sends a simple message when the /main route is accessed
+// req is the request object, res is the response object 
+// also, get json file from res.send
+app.get('/main', (req, res) => {
   res.send('Hello, world!');
 });
+
+app.post('/main/:id', (req, res) => {
+  const  { id } = req.params; // extract id from the request parameters
+  const { body } = req; // extract body from the request
+
+  // Log the received data.
+  res.send({
+    message: `Received POST request with ID: ${id}`,
+    data: body
+  });
+}
+)
 
 // Start the server
 app.listen(PORT, () => {
